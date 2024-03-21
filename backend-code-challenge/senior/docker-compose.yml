@@ -1,49 +1,51 @@
-version: '3.8'
+version: "3.8"
 networks:
-  frontend:
-    driver: bridge
-  backend:
-    driver: bridge
+ frontend:
+  driver: bridge
+ backend:
+  driver: bridge
 services:
-  frontend:
-    build: ./frontend/
-    image: frontend:latest
-    environment:
-      NODE_ENV: development
-    depends_on:
-      - backend
-    ports:
-      - ${UI_PORT}:${UI_PORT}
-    networks:
-      - frontend
-  backend:
-    build: ./backend/
-    image: backend:latest
-    environment:
-      API_PORT: ${API_PORT}
-      API_KEY: ${API_KEY}
-      DB_NAME: ${DB_NAME}
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      DB_PWD: ${DB_PWD}
-      DB_USER: ${DB_USER}
-      NODE_ENV: development
-    depends_on:
-      - db
-    ports:
-      - ${API_PORT}:${API_PORT}
-    networks:
-      - backend      
-  db:
-    image: postgres:11
-    restart: always
-    volumes:
-      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_PASSWORD: ${DB_PWD}
-      POSTGRES_USER: ${DB_USER}
-    ports:
-      - ${DB_PORT}:5432
-    networks:
-      - backend
+ frontend:
+  build: ./frontend/
+  image: frontend:latest
+  environment:
+   NODE_ENV: development
+  depends_on:
+   - backend
+  ports:
+   - ${UI_PORT}:${UI_PORT}
+  networks:
+   - frontend
+ backend:
+  build: ./backend/
+  image: backend:latest
+  environment:
+   API_PORT: ${API_PORT}
+   API_KEY: ${API_KEY}
+   DB_NAME: ${DB_NAME}
+   DB_HOST: ${DB_HOST}
+   DB_PORT: ${DB_PORT}
+   DB_PWD: ${DB_PWD}
+   DB_USER: ${DB_USER}
+   NODE_ENV: development
+  depends_on:
+   - db
+  ports:
+   - ${API_PORT}:${API_PORT}
+  networks:
+   - backend
+  volumes:
+   - /run/docker.sock:/var/run/docker.sock
+ db:
+  image: postgres:11
+  restart: always
+  volumes:
+   - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+  environment:
+   POSTGRES_DB: ${DB_NAME}
+   POSTGRES_PASSWORD: ${DB_PWD}
+   POSTGRES_USER: ${DB_USER}
+  ports:
+   - ${DB_PORT}:5432
+  networks:
+   - backend
