@@ -33,5 +33,5 @@ RUN yarn global add serve
 # Copy built node modules and binaries without including the toolchain
 COPY --from=builder /apolitical/frontend/build build
 
-EXPOSE 3000
-CMD ["serve", "-s", "build"]
+EXPOSE 5000
+CMD ["serve", "-s", "build", "-l", "5000"]
