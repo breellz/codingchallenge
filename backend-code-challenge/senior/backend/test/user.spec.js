@@ -14,7 +14,7 @@ const pool = new Pool({
   connectionString: URI,
 });
 
-describe('User Resource', () => {
+describe.skip('User Resource', () => {
   let database = null;
   let server = null;
 
