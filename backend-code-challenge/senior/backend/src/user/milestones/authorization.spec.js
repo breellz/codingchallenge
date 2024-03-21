@@ -17,7 +17,7 @@ const {
   },
 } = require('../../config');
 
-describe.skip('Authorization Milestone', () => {
+describe('Authorization Milestone', () => {
   const mockHeader = jest.fn();
 
   let req = null;

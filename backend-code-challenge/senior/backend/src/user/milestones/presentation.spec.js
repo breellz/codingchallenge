@@ -19,7 +19,7 @@ const {
   },
 } = require('../../config');
 
-describe.skip('Presentation Milestone', () => {
+describe('Presentation Milestone', () => {
   const favourites = ['1', '2'];
   const favouritesDetails = [{ name: 'name-1' }, { name: 'name-2' }];
 

@@ -10,7 +10,9 @@ const {
     HEADERS: { X_API_KEY },
   },
 } = require('../../config');
+
 const WRONG_API_KEY_ERROR = 'Wrong API key';
+
 module.exports = (req, res, context) => {
    // Get the API key from the request headers
 
