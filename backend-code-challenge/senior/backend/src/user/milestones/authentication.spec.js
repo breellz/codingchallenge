@@ -17,7 +17,7 @@ const {
   },
 } = require('../../config');
 
-describe.skip('Authentication Milestone', () => {
+describe('Authentication Milestone', () => {
   const slug = 'c2VuaW9yLWNhbmRpZGF0ZQ==';
   const mockHeader = jest.fn();
 
