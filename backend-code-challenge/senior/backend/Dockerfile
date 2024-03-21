@@ -1,4 +1,4 @@
-FROM node:12.20.1-alpine3.11
+FROM node:14.16-alpine3.11
 
 # Create app directory
 WORKDIR /apolitical/backend

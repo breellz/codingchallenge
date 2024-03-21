@@ -1,5 +1,5 @@
 # Multistage build (1st stage)
-FROM node:12.20.1-alpine3.11 AS builder
+FROM node:14.16-alpine3.11 AS builder
 
 # Create directory
 WORKDIR /apolitical/frontend
@@ -17,7 +17,7 @@ COPY src ./src
 RUN yarn build
 
 # Multistage build (2nd stage)
-FROM node:12.20.1-alpine3.11 AS app
+FROM node:14.16-alpine3.11 AS app
 
 # Create directory
 WORKDIR /apolitical/frontend
