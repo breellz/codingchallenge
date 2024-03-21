@@ -11,6 +11,8 @@ const {
   },
 } = require('../../config');
 
+const MISSING_USER_SLUG_ERROR = 'Missing user slug';
+
 module.exports = (req, res, context) => {
    // Get the slug from the request parameters or headers
   let slug = req.params.slug;
