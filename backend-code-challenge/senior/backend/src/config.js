@@ -1,6 +1,6 @@
 'use strict';
 
-const { API_PORT, API_KEY, DB_USER, DB_PWD, DB_HOST, DB_PORT, DB_NAME } = process.env;
+const { PORT, API_KEY, DB_USER, DB_PWD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
 module.exports = {
   API: {
@@ -12,7 +12,7 @@ module.exports = {
       X_SLUG: 'x-slug',
     },
     KEY: API_KEY,
-    PORT: API_PORT,
+    PORT: PORT,
     SLUGS: {
       MYSELF: 'me',
     },
